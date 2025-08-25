@@ -6,8 +6,10 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { ChatbotWidget } from "@/components/ChatbotWidget";
 import { Header } from "@/components/Header";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Index = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen">
       <Header />
@@ -77,7 +79,7 @@ const Index = () => {
                 <div>info@drsmithsmile.com</div>
                 <div className="pt-2">
                   <div className="text-xs opacity-75">
-                    © 2024 Dr. Smith Dental. All rights reserved.
+                    © 2024 Dr. Smith Dental. {t('footer.rights')}
                   </div>
                 </div>
               </div>

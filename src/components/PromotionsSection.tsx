@@ -1,35 +1,38 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-
-const promotions = [
-  {
-    title: "Dental Cleaning + Check-up",
-    price: "$30",
-    originalPrice: "$80",
-    description: "Complete oral health assessment with professional cleaning",
-    badge: "Limited Time"
-  },
-  {
-    title: "Express Whitening",
-    price: "20% Off",
-    originalPrice: "$150",
-    description: "Professional teeth whitening in just one visit",
-    badge: "Popular"
-  },
-  {
-    title: "Children's Check-up",
-    price: "$25",
-    originalPrice: "$60",
-    description: "Gentle dental care specifically designed for children",
-    badge: "Kids Special"
-  }
-];
+import { useLanguage } from "@/hooks/useLanguage";
 
 export const PromotionsSection = () => {
+  const { t } = useLanguage();
+  
+  const promotions = [
+    {
+      title: t('promotions.cleaning.title'),
+      price: "$30",
+      originalPrice: "$80",
+      description: t('promotions.cleaning.description'),
+      badge: t('promotions.badge.limited')
+    },
+    {
+      title: t('promotions.whitening.title'),
+      price: "20% Off",
+      originalPrice: "$150",
+      description: t('promotions.whitening.description'),
+      badge: t('promotions.badge.popular')
+    },
+    {
+      title: t('promotions.children.title'),
+      price: "$25",
+      originalPrice: "$60",
+      description: t('promotions.children.description'),
+      badge: t('promotions.badge.kids')
+    }
+  ];
+  
   const openChatbot = (promotionTitle: string) => {
     const event = new CustomEvent("open-chatbot-with-message", {
-      detail: { message: `I want to know more about ${promotionTitle}` }
+      detail: { message: `${t('chatbot.inquiry')} ${promotionTitle}` }
     });
     window.dispatchEvent(event);
   };
@@ -39,10 +42,10 @@ export const PromotionsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-            Special Promotions
+            {t('promotions.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Take advantage of our limited-time offers for quality dental care at unbeatable prices.
+            {t('promotions.description')}
           </p>
         </div>
         
@@ -63,7 +66,7 @@ export const PromotionsSection = () => {
                   <div className="text-4xl font-bold text-primary">{promotion.price}</div>
                   {promotion.originalPrice && (
                     <div className="text-muted-foreground line-through text-lg">
-                      Regular: {promotion.originalPrice}
+                      {t('promotions.regular')}: {promotion.originalPrice}
                     </div>
                   )}
                 </div>
@@ -72,7 +75,7 @@ export const PromotionsSection = () => {
                   className="w-full bg-primary hover:bg-primary-dark text-white py-3 text-lg font-semibold"
                   onClick={() => openChatbot(promotion.title)}
                 >
-                  Chat with our virtual assistant
+                  {t('promotions.chatButton')}
                 </Button>
               </CardContent>
             </Card>

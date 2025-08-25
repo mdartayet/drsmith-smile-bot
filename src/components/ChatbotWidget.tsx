@@ -3,6 +3,7 @@ import { Send, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface Message {
   id: string;
@@ -12,6 +13,7 @@ interface Message {
 }
 
 export const ChatbotWidget = () => {
+  const { t, language } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -80,15 +82,7 @@ export const ChatbotWidget = () => {
       // Add welcome message
       const welcomeMessage: Message = {
         id: "welcome-" + Date.now(),
-        text: `Welcome to Dr. Smith's Dental Clinic! 🦷
-
-Our monthly promotions for this month are:
-
-🔹 Dental cleaning + check-up for $30
-🔹 Express whitening with 20% off  
-🔹 Children's check-up for $25
-
-How can I help you schedule your appointment today?`,
+        text: t('chatbot.welcome'),
         isBot: true,
         timestamp: new Date()
       };
@@ -111,7 +105,7 @@ How can I help you schedule your appointment today?`,
       clearTimeout(timer);
       window.removeEventListener("open-chatbot-with-message", handleOpenWithMessage as EventListener);
     };
-  }, []);
+  }, [t]);
 
   const sendMessage = async (text: string) => {
     if (!text.trim()) return;
@@ -135,6 +129,7 @@ How can I help you schedule your appointment today?`,
         },
         body: JSON.stringify({
           message: text,
+          language: language,
           timestamp: new Date().toISOString()
         })
       });
@@ -157,7 +152,7 @@ How can I help you schedule your appointment today?`,
     } catch (error) {
       const errorMessage: Message = {
         id: "error-" + Date.now(),
-        text: "I'm sorry, I'm having trouble connecting right now. Please try again or call us at (555) 123-SMILE.",
+        text: t('chatbot.error'),
         isBot: true,
         timestamp: new Date()
       };
@@ -254,7 +249,7 @@ How can I help you schedule your appointment today?`,
                 ref={inputRef}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Type your message..."
+                placeholder={t('chatbot.placeholder')}
                 disabled={isLoading}
                 className="flex-1"
               />

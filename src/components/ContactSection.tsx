@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export const ContactSection = () => {
+  const { t } = useLanguage();
+  
   const openChatbot = () => {
     const chatWidget = document.querySelector('iframe[src*="chattybot"]') as HTMLIFrameElement;
     if (chatWidget) {
@@ -93,10 +96,9 @@ export const ContactSection = () => {
                   </div>
                   
                   <div className="space-y-4">
-                    <h3 className="text-3xl font-bold text-foreground">Ready to Schedule?</h3>
+                    <h3 className="text-3xl font-bold text-foreground">{t('contact.title')}</h3>
                     <p className="text-lg text-muted-foreground">
-                      Book your appointment today using our AI-powered scheduling assistant. 
-                      Get instant confirmation and choose your preferred time.
+                      {t('contact.description')}
                     </p>
                   </div>
                   
@@ -107,16 +109,16 @@ export const ContactSection = () => {
                       asChild
                     >
                       <a href="https://calendly.com/mdartayet/15min" target="_blank" rel="noopener noreferrer">
-                        Book Appointment Now
+                        {t('contact.bookButton')}
                       </a>
                     </Button>
                     
                     <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
-                      <span>📞 Call us</span>
+                      <span>📞 {t('contact.call')}</span>
                       <span>•</span>
-                      <span>💬 Chat online</span>
+                      <span>💬 {t('contact.chat')}</span>
                       <span>•</span>
-                      <span>📧 Email us</span>
+                      <span>📧 {t('contact.email')}</span>
                     </div>
                   </div>
                 </div>

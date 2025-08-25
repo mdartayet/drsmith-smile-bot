@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { LanguageSelector } from "@/components/LanguageSelector";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export const Header = () => {
+  const { t } = useLanguage();
   const openChatbot = () => {
     const chatWidget = document.querySelector('iframe[src*="chattybot"]') as HTMLIFrameElement;
     if (chatWidget) {
@@ -37,45 +40,46 @@ export const Header = () => {
               onClick={() => scrollToSection('home')}
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
-              Home
+              {t('nav.home')}
             </button>
             <button 
               onClick={() => scrollToSection('services')}
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
-              Services
+              {t('nav.services')}
             </button>
             <button 
               onClick={() => scrollToSection('about')}
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
-              About
+              {t('nav.about')}
             </button>
             <button 
               onClick={() => scrollToSection('testimonials')}
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
-              Reviews
+              {t('nav.reviews')}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="text-muted-foreground hover:text-primary transition-colors font-medium"
             >
-              Contact
+              {t('nav.contact')}
             </button>
           </nav>
           
           {/* CTA Button */}
           <div className="flex items-center gap-4">
+            <LanguageSelector />
             <div className="hidden sm:block text-sm text-muted-foreground">
-              (555) 123-SMILE
+              {t('header.phone')}
             </div>
             <Button 
               className="bg-primary hover:bg-primary-dark text-white font-semibold"
               asChild
             >
               <a href="https://calendly.com/mdartayet/15min" target="_blank" rel="noopener noreferrer">
-                Book Now
+                {t('header.bookNow')}
               </a>
             </Button>
           </div>

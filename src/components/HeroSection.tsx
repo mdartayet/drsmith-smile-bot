@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/hooks/useLanguage";
 import heroImage from "@/assets/dental-office-hero.jpg";
 
 export const HeroSection = () => {
+  const { t } = useLanguage();
+  
   const openChatbot = () => {
     // This will trigger the chatbot widget to open
     const chatButton = document.querySelector('button[data-testid="chat-fab"]') as HTMLButtonElement;
@@ -28,12 +31,11 @@ export const HeroSection = () => {
           <div className="text-white space-y-8">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                Your Perfect
-                <span className="block text-primary-light">Smile Awaits</span>
+                {t('hero.title')}
+                <span className="block text-primary-light">{t('hero.titleAccent')}</span>
               </h1>
               <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-lg">
-                Experience exceptional dental care with Dr. Smith. Advanced treatments, 
-                compassionate care, and results that will make you smile with confidence.
+                {t('hero.description')}
               </p>
             </div>
             
@@ -42,26 +44,26 @@ export const HeroSection = () => {
           <div className="relative">
             <Card className="bg-white/95 backdrop-blur-sm p-8 shadow-2xl border-0">
               <div className="text-center space-y-6">
-                <h3 className="text-2xl font-bold text-foreground">Ready to Get Started?</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('hero.readyTitle')}</h3>
                 <div className="space-y-4 text-left">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Same-day appointments available</span>
+                    <span className="text-muted-foreground">{t('hero.feature1')}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">State-of-the-art technology</span>
+                    <span className="text-muted-foreground">{t('hero.feature2')}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <span className="text-muted-foreground">Insurance accepted</span>
+                    <span className="text-muted-foreground">{t('hero.feature3')}</span>
                   </div>
                 </div>
                 <Button 
                   className="w-full bg-primary hover:bg-primary-dark text-white py-3 text-lg font-semibold"
                   onClick={openChatbot}
                 >
-                  Chat with our virtual assistant
+                  {t('hero.chatButton')}
                 </Button>
               </div>
             </Card>
