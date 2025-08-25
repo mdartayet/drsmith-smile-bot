@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import drSarahSmith from "@/assets/dr-sarah-smith.jpg";
+import drMichaelThomson from "@/assets/dr-michael-thomson.jpg";
 
 export const AboutSection = () => {
   const achievements = [
@@ -36,7 +37,7 @@ export const AboutSection = () => {
       name: "Dr. Michael Thomson, DDS",
       experience: "12+ years",
       description: "Dr. Thomson specializes in oral surgery and periodontics, bringing expertise in complex dental procedures and gum disease treatment to our practice.",
-      image: drSarahSmith, // Using same image for now - you can replace with actual Dr. Thomson photo
+      image: drMichaelThomson,
       education: [
         {
           degree: "Doctor of Dental Surgery (DDS)",
