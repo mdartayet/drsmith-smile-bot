@@ -8,31 +8,31 @@ export const PromotionsSection = () => {
   
   const promotions = [
     {
-      title: t('promotions.cleaning.title'),
+      title: t('promotions.cleaning.title') as string,
       price: "$30",
       originalPrice: "$80",
-      description: t('promotions.cleaning.description'),
-      badge: t('promotions.badge.limited')
+      description: t('promotions.cleaning.description') as string,
+      badge: t('promotions.badge.limited') as string
     },
     {
-      title: t('promotions.whitening.title'),
+      title: t('promotions.whitening.title') as string,
       price: "20% Off",
       originalPrice: "$150",
-      description: t('promotions.whitening.description'),
-      badge: t('promotions.badge.popular')
+      description: t('promotions.whitening.description') as string,
+      badge: t('promotions.badge.popular') as string
     },
     {
-      title: t('promotions.children.title'),
+      title: t('promotions.children.title') as string,
       price: "$25",
       originalPrice: "$60",
-      description: t('promotions.children.description'),
-      badge: t('promotions.badge.kids')
+      description: t('promotions.children.description') as string,
+      badge: t('promotions.badge.kids') as string
     }
   ];
   
   const openChatbot = (promotionTitle: string) => {
     const event = new CustomEvent("open-chatbot-with-message", {
-      detail: { message: `${t('chatbot.inquiry')} ${promotionTitle}` }
+      detail: { message: `${t('chatbot.inquiry') as string} ${promotionTitle}` }
     });
     window.dispatchEvent(event);
   };
@@ -73,7 +73,7 @@ export const PromotionsSection = () => {
                 
                 <Button 
                   className="w-full bg-primary hover:bg-primary-dark text-white py-3 text-lg font-semibold"
-                  onClick={() => openChatbot(promotion.title)}
+                  onClick={() => openChatbot(promotion.title as string)}
                 >
                   {t('promotions.chatButton')}
                 </Button>

@@ -82,7 +82,7 @@ export const ChatbotWidget = () => {
       // Add welcome message
       const welcomeMessage: Message = {
         id: "welcome-" + Date.now(),
-        text: t('chatbot.welcome'),
+        text: t('chatbot.welcome') as string,
         isBot: true,
         timestamp: new Date()
       };
@@ -152,7 +152,7 @@ export const ChatbotWidget = () => {
     } catch (error) {
       const errorMessage: Message = {
         id: "error-" + Date.now(),
-        text: t('chatbot.error'),
+        text: t('chatbot.error') as string,
         isBot: true,
         timestamp: new Date()
       };
@@ -249,7 +249,7 @@ export const ChatbotWidget = () => {
                 ref={inputRef}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder={t('chatbot.placeholder')}
+                placeholder={t('chatbot.placeholder') as string}
                 disabled={isLoading}
                 className="flex-1"
               />

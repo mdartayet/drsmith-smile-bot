@@ -5,7 +5,7 @@ export type Language = 'en' | 'es';
 interface LanguageContextType {
   language: Language;
   setLanguage: (language: Language) => void;
-  t: (key: string) => string;
+  t: (key: string) => string | string[];
 }
 
 const translations = {
@@ -30,12 +30,60 @@ const translations = {
     'hero.chatButton': 'Chat with our virtual assistant',
     
     // Services Section
-    'services.title': 'Our Services',
-    'services.description': 'Comprehensive dental care for the whole family',
+    'services.title': 'Complete Dental Care Services',
+    'services.description': 'From routine cleanings to advanced cosmetic procedures, Dr. Smith provides comprehensive dental care tailored to your unique needs.',
+    'services.general.title': 'General Dentistry',
+    'services.general.description': 'Comprehensive oral health care including cleanings, fillings, and preventive treatments.',
+    'services.general.features': ['Regular Cleanings', 'Cavity Fillings', 'Oral Exams', 'X-Rays'],
+    'services.cosmetic.title': 'Cosmetic Dentistry',
+    'services.cosmetic.description': 'Transform your smile with our advanced cosmetic treatments and procedures.',
+    'services.cosmetic.features': ['Teeth Whitening', 'Veneers', 'Bonding', 'Smile Makeovers'],
+    'services.orthodontics.title': 'Orthodontics',
+    'services.orthodontics.description': 'Straighten your teeth with traditional braces or modern clear aligners.',
+    'services.orthodontics.features': ['Traditional Braces', 'Clear Aligners', 'Retainers', 'Bite Correction'],
+    'services.restorative.title': 'Restorative Dentistry',
+    'services.restorative.description': 'Restore function and beauty to damaged or missing teeth.',
+    'services.restorative.features': ['Dental Implants', 'Crowns & Bridges', 'Dentures', 'Root Canals'],
+    'services.badges.popular': 'Popular',
+    'services.badges.premium': 'Premium',
+    'services.badges.advanced': 'Advanced',
+    'services.badges.specialized': 'Specialized',
     
     // About Section
-    'about.title': 'Meet Our Dental Team',
-    'about.description': 'Our experienced professionals are dedicated to providing exceptional dental care.',
+    'about.badge': 'Meet Your Dentists',
+    'about.title': 'Our Expert Team',
+    'about.achievements.experience': 'Years Experience',
+    'about.achievements.patients': 'Happy Patients',
+    'about.achievements.satisfaction': 'Satisfaction Rate',
+    'about.achievements.emergency': 'Emergency Care',
+    'about.education.title': 'Education & Certifications',
+    'about.drsmith.description': 'With over 15 years of experience in comprehensive dental care, Dr. Smith is committed to providing exceptional treatment in a comfortable, welcoming environment.',
+    'about.drsmith.quote': 'My mission is to help every patient achieve optimal oral health while creating beautiful, confident smiles. I believe in using the latest technology and techniques to provide gentle, effective care.',
+    'about.drthomson.description': 'Dr. Thomson specializes in oral surgery and periodontics, bringing expertise in complex dental procedures and gum disease treatment to our practice.',
+    'about.drthomson.quote': 'I focus on preserving and restoring the foundation of your smile. Healthy gums and precise surgical techniques are key to long-lasting dental health.',
+    
+    // Testimonials Section
+    'testimonials.title': 'What Our Patients Say',
+    'testimonials.description': 'Don\'t just take our word for it. Here\'s what our satisfied patients have to say about their experience with Dr. Smith.',
+    'testimonials.based': 'Based on',
+    'testimonials.reviews': 'reviews',
+    
+    // Contact Section Office
+    'contact.office.title': 'Visit Our Office',
+    'contact.office.description': 'Located in the heart of the city, our modern facility is designed for your comfort and convenience.',
+    'contact.office.hours': 'Office Hours',
+    'contact.office.emergency': 'Emergency Care',
+    'contact.office.emergencyDesc': '24/7 emergency dental services available. Call our emergency line for urgent care.',
+    'contact.office.contactInfo': 'Contact Information',
+    'contact.office.address': 'Address',
+    'contact.office.phone': 'Phone',
+    'contact.office.email': 'Email',
+    'contact.office.schedule': 'Ready to Schedule?',
+    'contact.office.scheduleDesc': 'Book your appointment today using our AI-powered scheduling assistant. Get instant confirmation and choose your preferred time.',
+    'contact.office.monday': 'Monday - Friday',
+    'contact.office.saturday': 'Saturday',
+    'contact.office.sunday': 'Sunday',
+    'contact.office.sundayHours': 'Emergency Only',
     
     // Promotions Section
     'promotions.title': 'Special Promotions',
@@ -99,12 +147,60 @@ How can I help you schedule your appointment today?`,
     'hero.chatButton': 'Chatea con nuestro asistente virtual',
     
     // Services Section
-    'services.title': 'Nuestros Servicios',
-    'services.description': 'Cuidado dental integral para toda la familia',
+    'services.title': 'Servicios Dentales Completos',
+    'services.description': 'Desde limpiezas rutinarias hasta procedimientos cosméticos avanzados, Dr. Smith brinda cuidado dental integral adaptado a sus necesidades únicas.',
+    'services.general.title': 'Odontología General',
+    'services.general.description': 'Cuidado integral de salud oral incluyendo limpiezas, empastes y tratamientos preventivos.',
+    'services.general.features': ['Limpiezas Regulares', 'Empastes de Caries', 'Exámenes Orales', 'Radiografías'],
+    'services.cosmetic.title': 'Odontología Cosmética',
+    'services.cosmetic.description': 'Transforma tu sonrisa con nuestros tratamientos y procedimientos cosméticos avanzados.',
+    'services.cosmetic.features': ['Blanqueamiento Dental', 'Carillas', 'Bonding', 'Renovación de Sonrisa'],
+    'services.orthodontics.title': 'Ortodoncia',
+    'services.orthodontics.description': 'Endereza tus dientes con brackets tradicionales o alineadores transparentes modernos.',
+    'services.orthodontics.features': ['Brackets Tradicionales', 'Alineadores Transparentes', 'Retenedores', 'Corrección de Mordida'],
+    'services.restorative.title': 'Odontología Restaurativa',
+    'services.restorative.description': 'Restaura la función y belleza de los dientes dañados o perdidos.',
+    'services.restorative.features': ['Implantes Dentales', 'Coronas y Puentes', 'Dentaduras', 'Endodoncia'],
+    'services.badges.popular': 'Popular',
+    'services.badges.premium': 'Premium',
+    'services.badges.advanced': 'Avanzado',
+    'services.badges.specialized': 'Especializado',
     
     // About Section
-    'about.title': 'Conoce Nuestro Equipo Dental',
-    'about.description': 'Nuestros profesionales experimentados se dedican a brindar cuidado dental excepcional.',
+    'about.badge': 'Conoce a Tus Dentistas',
+    'about.title': 'Nuestro Equipo Experto',
+    'about.achievements.experience': 'Años de Experiencia',
+    'about.achievements.patients': 'Pacientes Satisfechos',
+    'about.achievements.satisfaction': 'Tasa de Satisfacción',
+    'about.achievements.emergency': 'Atención de Emergencia',
+    'about.education.title': 'Educación y Certificaciones',
+    'about.drsmith.description': 'Con más de 15 años de experiencia en cuidado dental integral, Dr. Smith se compromete a brindar tratamiento excepcional en un ambiente cómodo y acogedor.',
+    'about.drsmith.quote': 'Mi misión es ayudar a cada paciente a lograr una salud oral óptima mientras creo sonrisas hermosas y seguras. Creo en usar la última tecnología y técnicas para brindar cuidado suave y efectivo.',
+    'about.drthomson.description': 'Dr. Thomson se especializa en cirugía oral y periodoncia, aportando experiencia en procedimientos dentales complejos y tratamiento de enfermedades de las encías a nuestra práctica.',
+    'about.drthomson.quote': 'Me enfoco en preservar y restaurar la base de tu sonrisa. Las encías saludables y las técnicas quirúrgicas precisas son clave para la salud dental duradera.',
+    
+    // Testimonials Section
+    'testimonials.title': 'Lo Que Dicen Nuestros Pacientes',
+    'testimonials.description': 'No solo tomes nuestra palabra. Esto es lo que nuestros pacientes satisfechos tienen que decir sobre su experiencia con Dr. Smith.',
+    'testimonials.based': 'Basado en',
+    'testimonials.reviews': 'reseñas',
+    
+    // Contact Section Office
+    'contact.office.title': 'Visita Nuestra Oficina',
+    'contact.office.description': 'Ubicada en el corazón de la ciudad, nuestra instalación moderna está diseñada para tu comodidad y conveniencia.',
+    'contact.office.hours': 'Horarios de Oficina',
+    'contact.office.emergency': 'Atención de Emergencia',
+    'contact.office.emergencyDesc': 'Servicios dentales de emergencia disponibles 24/7. Llama a nuestra línea de emergencia para atención urgente.',
+    'contact.office.contactInfo': 'Información de Contacto',
+    'contact.office.address': 'Dirección',
+    'contact.office.phone': 'Teléfono',
+    'contact.office.email': 'Email',
+    'contact.office.schedule': '¿Listo para Programar?',
+    'contact.office.scheduleDesc': 'Reserva tu cita hoy usando nuestro asistente de programación con IA. Obtén confirmación instantánea y elige tu horario preferido.',
+    'contact.office.monday': 'Lunes - Viernes',
+    'contact.office.saturday': 'Sábado',
+    'contact.office.sunday': 'Domingo',
+    'contact.office.sundayHours': 'Solo Emergencias',
     
     // Promotions Section
     'promotions.title': 'Promociones Especiales',
@@ -154,7 +250,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('en');
 
-  const t = (key: string): string => {
+  const t = (key: string): string | string[] => {
     return translations[language][key as keyof typeof translations['en']] || key;
   };
 

@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const testimonials = [
   {
@@ -25,16 +26,16 @@ const testimonials = [
 ];
 
 export const TestimonialsSection = () => {
+  const { t } = useLanguage();
   return (
     <section className="py-20 bg-gradient-to-br from-primary/5 to-accent/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-            What Our Patients Say
+            {t('testimonials.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied patients 
-            have to say about their experience with Dr. Smith.
+            {t('testimonials.description')}
           </p>
         </div>
         
@@ -80,7 +81,7 @@ export const TestimonialsSection = () => {
             </div>
             <div className="h-6 w-px bg-border"></div>
             <div className="text-sm text-muted-foreground">
-              Based on 500+ reviews
+              {t('testimonials.based')} 500+ {t('testimonials.reviews')}
             </div>
           </div>
         </div>

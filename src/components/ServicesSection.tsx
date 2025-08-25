@@ -1,44 +1,45 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
-const services = [
-  {
-    title: "General Dentistry",
-    description: "Comprehensive oral health care including cleanings, fillings, and preventive treatments.",
-    features: ["Regular Cleanings", "Cavity Fillings", "Oral Exams", "X-Rays"],
-    badge: "Popular"
-  },
-  {
-    title: "Cosmetic Dentistry", 
-    description: "Transform your smile with our advanced cosmetic treatments and procedures.",
-    features: ["Teeth Whitening", "Veneers", "Bonding", "Smile Makeovers"],
-    badge: "Premium"
-  },
-  {
-    title: "Orthodontics",
-    description: "Straighten your teeth with traditional braces or modern clear aligners.",
-    features: ["Traditional Braces", "Clear Aligners", "Retainers", "Bite Correction"],
-    badge: "Advanced"
-  },
-  {
-    title: "Restorative Dentistry",
-    description: "Restore function and beauty to damaged or missing teeth.",
-    features: ["Dental Implants", "Crowns & Bridges", "Dentures", "Root Canals"],
-    badge: "Specialized"
-  }
-];
+import { useLanguage } from "@/hooks/useLanguage";
 
 export const ServicesSection = () => {
+  const { t } = useLanguage();
+  
+  const services = [
+    {
+      title: t('services.general.title') as string,
+      description: t('services.general.description') as string,
+      features: t('services.general.features') as string[],
+      badge: t('services.badges.popular') as string
+    },
+    {
+      title: t('services.cosmetic.title') as string, 
+      description: t('services.cosmetic.description') as string,
+      features: t('services.cosmetic.features') as string[],
+      badge: t('services.badges.premium') as string
+    },
+    {
+      title: t('services.orthodontics.title') as string,
+      description: t('services.orthodontics.description') as string,
+      features: t('services.orthodontics.features') as string[],
+      badge: t('services.badges.advanced') as string
+    },
+    {
+      title: t('services.restorative.title') as string,
+      description: t('services.restorative.description') as string,
+      features: t('services.restorative.features') as string[],
+      badge: t('services.badges.specialized') as string
+    }
+  ];
   return (
     <section className="py-20 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-            Complete Dental Care Services
+            {t('services.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From routine cleanings to advanced cosmetic procedures, Dr. Smith provides 
-            comprehensive dental care tailored to your unique needs.
+            {t('services.description')}
           </p>
         </div>
         

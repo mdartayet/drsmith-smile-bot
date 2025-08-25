@@ -1,21 +1,24 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/hooks/useLanguage";
 import drSarahSmith from "@/assets/dr-sarah-smith.jpg";
 import drMichaelThomson from "@/assets/dr-michael-thomson.jpg";
 
 export const AboutSection = () => {
+  const { t } = useLanguage();
+  
   const achievements = [
-    { number: "15+", label: "Years Experience" },
-    { number: "5000+", label: "Happy Patients" },
-    { number: "98%", label: "Satisfaction Rate" },
-    { number: "24/7", label: "Emergency Care" }
+    { number: "15+", label: t('about.achievements.experience') },
+    { number: "5000+", label: t('about.achievements.patients') },
+    { number: "98%", label: t('about.achievements.satisfaction') },
+    { number: "24/7", label: t('about.achievements.emergency') }
   ];
 
   const doctors = [
     {
       name: "Dr. Sarah Smith, DDS",
       experience: "15+ years",
-      description: "With over 15 years of experience in comprehensive dental care, Dr. Smith is committed to providing exceptional treatment in a comfortable, welcoming environment.",
+      description: t('about.drsmith.description'),
       image: drSarahSmith,
       education: [
         {
@@ -31,12 +34,12 @@ export const AboutSection = () => {
           institution: "International Congress of Oral Implantologists"
         }
       ],
-      quote: "My mission is to help every patient achieve optimal oral health while creating beautiful, confident smiles. I believe in using the latest technology and techniques to provide gentle, effective care."
+      quote: t('about.drsmith.quote')
     },
     {
       name: "Dr. Michael Thomson, DDS",
       experience: "12+ years",
-      description: "Dr. Thomson specializes in oral surgery and periodontics, bringing expertise in complex dental procedures and gum disease treatment to our practice.",
+      description: t('about.drthomson.description'),
       image: drMichaelThomson,
       education: [
         {
@@ -52,7 +55,7 @@ export const AboutSection = () => {
           institution: "American Association of Oral Surgeons"
         }
       ],
-      quote: "I focus on preserving and restoring the foundation of your smile. Healthy gums and precise surgical techniques are key to long-lasting dental health."
+      quote: t('about.drthomson.quote')
     }
   ];
 
@@ -61,10 +64,10 @@ export const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="bg-primary/10 text-primary px-4 py-2">
-            Meet Your Dentists
+            {t('about.badge')}
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mt-4">
-            Our Expert Team
+            {t('about.title')}
           </h2>
         </div>
 
@@ -82,7 +85,7 @@ export const AboutSection = () => {
                 </div>
                 
                 <div className="space-y-4">
-                  <h4 className="text-2xl font-semibold text-foreground">Education & Certifications</h4>
+                  <h4 className="text-2xl font-semibold text-foreground">{t('about.education.title')}</h4>
                   <div className="space-y-3">
                     {doctor.education.map((edu, index) => (
                       <div key={index} className="flex items-start gap-3">

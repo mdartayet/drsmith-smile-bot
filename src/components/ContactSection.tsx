@@ -18,11 +18,10 @@ export const ContactSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-            Visit Our Office
+            {t('contact.office.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Located in the heart of the city, our modern facility is designed 
-            for your comfort and convenience.
+            {t('contact.office.description')}
           </p>
         </div>
         
@@ -30,26 +29,26 @@ export const ContactSection = () => {
           <div className="lg:col-span-1 space-y-6">
             <Card className="bg-primary text-white border-0">
               <CardContent className="p-8 space-y-6">
-                <h3 className="text-2xl font-bold">Office Hours</h3>
+                <h3 className="text-2xl font-bold">{t('contact.office.hours')}</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
-                    <span>Monday - Friday</span>
+                    <span>{t('contact.office.monday')}</span>
                     <span className="font-semibold">8:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Saturday</span>
+                    <span>{t('contact.office.saturday')}</span>
                     <span className="font-semibold">9:00 AM - 4:00 PM</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span className="font-semibold">Emergency Only</span>
+                    <span>{t('contact.office.sunday')}</span>
+                    <span className="font-semibold">{t('contact.office.sundayHours')}</span>
                   </div>
                 </div>
                 
                 <div className="pt-4 border-t border-white/20">
-                  <h4 className="font-semibold mb-2">Emergency Care</h4>
+                  <h4 className="font-semibold mb-2">{t('contact.office.emergency')}</h4>
                   <p className="text-sm opacity-90">
-                    24/7 emergency dental services available. Call our emergency line for urgent care.
+                    {t('contact.office.emergencyDesc')}
                   </p>
                 </div>
               </CardContent>
@@ -57,26 +56,26 @@ export const ContactSection = () => {
             
             <Card className="border-primary/20">
               <CardContent className="p-8 space-y-4">
-                <h3 className="text-xl font-bold text-foreground">Contact Information</h3>
+                <h3 className="text-xl font-bold text-foreground">{t('contact.office.contactInfo')}</h3>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                     <div>
-                      <p className="font-semibold text-foreground">Address</p>
+                      <p className="font-semibold text-foreground">{t('contact.office.address')}</p>
                       <p className="text-muted-foreground">123 Medical Plaza<br/>Downtown City, State 12345</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                     <div>
-                      <p className="font-semibold text-foreground">Phone</p>
+                      <p className="font-semibold text-foreground">{t('contact.office.phone')}</p>
                       <p className="text-muted-foreground">(555) 123-SMILE</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                     <div>
-                      <p className="font-semibold text-foreground">Email</p>
+                      <p className="font-semibold text-foreground">{t('contact.office.email')}</p>
                       <p className="text-muted-foreground">info@drsmithsmile.com</p>
                     </div>
                   </div>
@@ -96,9 +95,9 @@ export const ContactSection = () => {
                   </div>
                   
                   <div className="space-y-4">
-                    <h3 className="text-3xl font-bold text-foreground">{t('contact.title')}</h3>
+                    <h3 className="text-3xl font-bold text-foreground">{t('contact.office.schedule')}</h3>
                     <p className="text-lg text-muted-foreground">
-                      {t('contact.description')}
+                      {t('contact.office.scheduleDesc')}
                     </p>
                   </div>
                   
