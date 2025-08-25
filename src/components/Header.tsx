@@ -72,9 +72,11 @@ export const Header = () => {
             </div>
             <Button 
               className="bg-primary hover:bg-primary-dark text-white font-semibold"
-              onClick={openChatbot}
+              asChild
             >
-              Book Now
+              <a href="https://calendly.com/mdartayet/15min" target="_blank" rel="noopener noreferrer">
+                Book Now
+              </a>
             </Button>
           </div>
         </div>

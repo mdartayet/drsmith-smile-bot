@@ -37,16 +37,6 @@ export const HeroSection = () => {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg"
-                variant="secondary"
-                className="bg-white text-primary hover:bg-blue-50 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
-                onClick={openChatbot}
-              >
-                Chat with our virtual assistant
-              </Button>
-            </div>
           </div>
           
           <div className="relative">
@@ -69,9 +59,11 @@ export const HeroSection = () => {
                 </div>
                 <Button 
                   className="w-full bg-primary hover:bg-primary-dark text-white py-3 text-lg font-semibold"
-                  onClick={openChatbot}
+                  asChild
                 >
-                  Chat with our virtual assistant
+                  <a href="https://calendly.com/mdartayet/15min" target="_blank" rel="noopener noreferrer">
+                    Book Now
+                  </a>
                 </Button>
               </div>
             </Card>
