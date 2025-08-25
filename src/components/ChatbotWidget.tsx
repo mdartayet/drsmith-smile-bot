@@ -20,11 +20,34 @@ export const ChatbotWidget = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const renderMessageWithLinks = (text: string) => {
-    // Regular expression to detect URLs
+    // First handle Markdown-style links [text](url)
+    const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    let processedText = text.replace(markdownLinkRegex, (match, linkText, url) => {
+      return `__MARKDOWN_LINK__${linkText}__${url}__MARKDOWN_LINK__`;
+    });
+    
+    // Then handle direct URLs
     const urlRegex = /(https?:\/\/[^\s]+)/g;
-    const parts = text.split(urlRegex);
+    const parts = processedText.split(/(__MARKDOWN_LINK__[^_]+__[^_]+__MARKDOWN_LINK__|https?:\/\/[^\s]+)/g);
     
     return parts.map((part, index) => {
+      // Handle Markdown links
+      if (part.startsWith('__MARKDOWN_LINK__')) {
+        const content = part.replace(/__MARKDOWN_LINK__|__MARKDOWN_LINK__/g, '');
+        const [linkText, url] = content.split('__');
+        return (
+          <a
+            key={index}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline hover:text-primary/80"
+          >
+            {linkText}
+          </a>
+        );
+      }
+      // Handle direct URLs
       if (urlRegex.test(part)) {
         return (
           <a
