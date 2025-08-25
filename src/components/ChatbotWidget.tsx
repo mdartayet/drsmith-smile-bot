@@ -80,9 +80,14 @@ How can I help you schedule your appointment today?`,
 
       const data = await response.json();
       
+      // Extract the content from the webhook response format
+      const botResponse = Array.isArray(data) && data.length > 0 && data[0].content 
+        ? data[0].content 
+        : "Thank you for your message! I'll help you schedule your appointment.";
+      
       const botMessage: Message = {
         id: "bot-" + Date.now(),
-        text: data.response || "Thank you for your message! I'll help you schedule your appointment.",
+        text: botResponse,
         isBot: true,
         timestamp: new Date()
       };
