@@ -27,11 +27,20 @@ const promotions = [
 ];
 
 export const PromotionsSection = () => {
-  const openChatbot = () => {
+  const openChatbot = (promotionTitle: string) => {
     // This will trigger the chatbot widget to open
     const chatButton = document.querySelector('button[data-testid="chat-fab"]') as HTMLButtonElement;
     if (chatButton) {
       chatButton.click();
+      
+      // Set the input value with the promotion inquiry
+      setTimeout(() => {
+        const chatInput = document.querySelector('input[placeholder="Type your message..."]') as HTMLInputElement;
+        if (chatInput) {
+          chatInput.value = `I want to know more about ${promotionTitle}`;
+          chatInput.focus();
+        }
+      }, 200);
     }
   };
 
@@ -71,7 +80,7 @@ export const PromotionsSection = () => {
                 
                 <Button 
                   className="w-full bg-primary hover:bg-primary-dark text-white py-3 text-lg font-semibold"
-                  onClick={openChatbot}
+                  onClick={() => openChatbot(promotion.title)}
                 >
                   Chat with our virtual assistant
                 </Button>
