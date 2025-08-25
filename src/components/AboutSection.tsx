@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import drSarahSmith from "@/assets/dr-sarah-smith.jpg";
 
 export const AboutSection = () => {
   const achievements = [
@@ -57,6 +58,14 @@ export const AboutSection = () => {
           </div>
           
           <div className="space-y-8">
+            <div className="relative">
+              <img 
+                src={drSarahSmith}
+                alt="Dr. Sarah Smith, DDS - Professional dentist portrait"
+                className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
+              />
+            </div>
+            
             <Card className="bg-gradient-to-br from-primary/5 to-accent/30 border-primary/20">
               <CardContent className="p-8">
                 <div className="grid grid-cols-2 gap-6">

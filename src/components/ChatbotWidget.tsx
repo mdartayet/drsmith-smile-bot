@@ -85,6 +85,14 @@ export const ChatbotWidget = () => {
     
     document.body.appendChild(fab);
     
+    // Auto-open the chatbot when the page loads
+    setTimeout(() => {
+      isOpen = true;
+      iframe.style.display = 'block';
+      fab.innerHTML = '✕';
+      fab.style.background = '#ef4444';
+    }, 1000); // Open after 1 second
+    
     // Cleanup function
     return () => {
       document.body.removeChild(iframe);

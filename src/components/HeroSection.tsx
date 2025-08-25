@@ -45,7 +45,7 @@ export const HeroSection = () => {
                 className="bg-white text-primary hover:bg-blue-50 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
                 onClick={openChatbot}
               >
-                Book Appointment
+                Chat with our AI bot
               </Button>
               <Button 
                 size="lg"
@@ -79,7 +79,7 @@ export const HeroSection = () => {
                   className="w-full bg-primary hover:bg-primary-dark text-white py-3 text-lg font-semibold"
                   onClick={openChatbot}
                 >
-                  Schedule Your Visit
+                  Chat with our AI bot
                 </Button>
               </div>
             </Card>

@@ -66,11 +66,6 @@ export const ServicesSection = () => {
                   ))}
                 </div>
                 
-                <div className="pt-4 border-t border-border">
-                  <button className="text-primary hover:text-primary-dark font-semibold text-sm transition-colors">
-                    Learn More →
-                  </button>
-                </div>
               </CardContent>
             </Card>
           ))}
