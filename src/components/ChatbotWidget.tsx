@@ -236,6 +236,7 @@ How can I help you schedule your appointment today?`,
       {/* Floating Action Button */}
       <Button
         onClick={toggleChat}
+        data-testid="chat-fab"
         className={`fixed bottom-6 right-6 w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-[1001] ${
           isOpen 
             ? "bg-destructive hover:bg-destructive/90" 

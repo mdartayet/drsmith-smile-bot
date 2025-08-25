@@ -4,11 +4,10 @@ import heroImage from "@/assets/dental-office-hero.jpg";
 
 export const HeroSection = () => {
   const openChatbot = () => {
-    // This will be handled by the chatbot widget
-    const chatWidget = document.querySelector('iframe[src*="chattybot"]') as HTMLIFrameElement;
-    if (chatWidget) {
-      chatWidget.style.display = 'block';
-      chatWidget.focus();
+    // This will trigger the chatbot widget to open
+    const chatButton = document.querySelector('button[data-testid="chat-fab"]') as HTMLButtonElement;
+    if (chatButton) {
+      chatButton.click();
     }
   };
 
@@ -46,13 +45,6 @@ export const HeroSection = () => {
                 onClick={openChatbot}
               >
                 Chat with our AI bot
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold"
-              >
-                Learn More
               </Button>
             </div>
           </div>
