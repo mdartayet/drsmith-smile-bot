@@ -44,7 +44,7 @@ export const HeroSection = () => {
                 className="bg-white text-primary hover:bg-blue-50 px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
                 onClick={openChatbot}
               >
-                Chat with our AI bot
+                Chat with our virtual assistant
               </Button>
             </div>
           </div>
@@ -71,7 +71,7 @@ export const HeroSection = () => {
                   className="w-full bg-primary hover:bg-primary-dark text-white py-3 text-lg font-semibold"
                   onClick={openChatbot}
                 >
-                  Chat with our AI bot
+                  Chat with our virtual assistant
                 </Button>
               </div>
             </Card>

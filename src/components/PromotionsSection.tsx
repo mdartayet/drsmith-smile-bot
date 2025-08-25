@@ -73,7 +73,7 @@ export const PromotionsSection = () => {
                   className="w-full bg-primary hover:bg-primary-dark text-white py-3 text-lg font-semibold"
                   onClick={openChatbot}
                 >
-                  Chat with our AI bot
+                  Chat with our virtual assistant
                 </Button>
               </CardContent>
             </Card>
