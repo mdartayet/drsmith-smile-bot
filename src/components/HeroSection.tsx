@@ -59,11 +59,9 @@ export const HeroSection = () => {
                 </div>
                 <Button 
                   className="w-full bg-primary hover:bg-primary-dark text-white py-3 text-lg font-semibold"
-                  asChild
+                  onClick={openChatbot}
                 >
-                  <a href="https://calendly.com/mdartayet/15min" target="_blank" rel="noopener noreferrer">
-                    Book Now
-                  </a>
+                  Chat with our virtual assistant
                 </Button>
               </div>
             </Card>

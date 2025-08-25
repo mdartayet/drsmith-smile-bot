@@ -104,9 +104,11 @@ export const ContactSection = () => {
                     <Button 
                       size="lg"
                       className="bg-primary hover:bg-primary-dark text-white px-8 py-4 text-lg font-semibold w-full sm:w-auto"
-                      onClick={openChatbot}
+                      asChild
                     >
-                      Book Appointment Now
+                      <a href="https://calendly.com/mdartayet/15min" target="_blank" rel="noopener noreferrer">
+                        Book Appointment Now
+                      </a>
                     </Button>
                     
                     <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">

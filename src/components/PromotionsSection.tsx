@@ -28,10 +28,10 @@ const promotions = [
 
 export const PromotionsSection = () => {
   const openChatbot = () => {
-    const chatWidget = document.querySelector('iframe[src*="chattybot"]') as HTMLIFrameElement;
-    if (chatWidget) {
-      chatWidget.style.display = 'block';
-      chatWidget.focus();
+    // This will trigger the chatbot widget to open
+    const chatButton = document.querySelector('button[data-testid="chat-fab"]') as HTMLButtonElement;
+    if (chatButton) {
+      chatButton.click();
     }
   };
 
