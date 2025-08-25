@@ -19,6 +19,29 @@ export const ChatbotWidget = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const renderMessageWithLinks = (text: string) => {
+    // Regular expression to detect URLs
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = text.split(urlRegex);
+    
+    return parts.map((part, index) => {
+      if (urlRegex.test(part)) {
+        return (
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline hover:text-primary/80 break-all"
+          >
+            {part}
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -159,7 +182,7 @@ How can I help you schedule your appointment today?`,
                         : "bg-primary text-primary-foreground"
                     }`}
                   >
-                    <div className="whitespace-pre-wrap">{message.text}</div>
+                    <div className="whitespace-pre-wrap">{renderMessageWithLinks(message.text)}</div>
                     <div className={`text-xs mt-1 opacity-70 ${
                       message.isBot ? "text-muted-foreground" : "text-primary-foreground/70"
                     }`}>
