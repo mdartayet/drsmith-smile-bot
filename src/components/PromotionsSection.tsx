@@ -18,7 +18,7 @@ const promotions = [
     badge: "Popular"
   },
   {
-    title: "Children's Check-up with Dr. Bustamante",
+    title: "Children's Check-up",
     price: "$25",
     originalPrice: "$60",
     description: "Gentle dental care specifically designed for children",

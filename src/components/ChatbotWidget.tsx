@@ -86,7 +86,7 @@ Our monthly promotions for this month are:
 
 🔹 Dental cleaning + check-up for $30
 🔹 Express whitening with 20% off  
-🔹 Children's check-up with Dr. Bustamante for $25
+🔹 Children's check-up for $25
 
 How can I help you schedule your appointment today?`,
         isBot: true,
