@@ -73,7 +73,7 @@ export const ChatbotWidget = () => {
     scrollToBottom();
   }, [messages]);
 
-  // Auto-open the chatbot and show welcome message
+  // Auto-open the chatbot and show welcome message + support preset messages
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true);
@@ -95,7 +95,22 @@ How can I help you schedule your appointment today?`,
       setMessages([welcomeMessage]);
     }, 1000);
 
-    return () => clearTimeout(timer);
+    // Listen for external requests to open with a prefilled message
+    const handleOpenWithMessage = (e: Event) => {
+      const detail = (e as CustomEvent<{ message: string }>).detail;
+      if (detail?.message) {
+        setIsOpen(true);
+        setInputValue(detail.message);
+        setTimeout(() => inputRef.current?.focus(), 100);
+      }
+    };
+
+    window.addEventListener("open-chatbot-with-message", handleOpenWithMessage as EventListener);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("open-chatbot-with-message", handleOpenWithMessage as EventListener);
+    };
   }, []);
 
   const sendMessage = async (text: string) => {
