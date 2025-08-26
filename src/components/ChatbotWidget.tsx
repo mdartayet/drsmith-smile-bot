@@ -22,44 +22,86 @@ export const ChatbotWidget = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const renderMessageWithLinks = (text: string) => {
+    // Handle different link formats
+    const parts = [];
+    let lastIndex = 0;
+    
     // First handle Markdown-style links [text](url)
     const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-    let processedText = text.replace(markdownLinkRegex, (match, linkText, url) => {
-      return `__MARKDOWN_LINK__${linkText}__${url}__MARKDOWN_LINK__`;
+    let match;
+    
+    while ((match = markdownLinkRegex.exec(text)) !== null) {
+      // Add text before the link
+      if (match.index > lastIndex) {
+        parts.push(text.slice(lastIndex, match.index));
+      }
+      
+      // Add the link
+      parts.push({
+        type: 'link',
+        text: match[1],
+        url: match[2].trim(),
+        key: `markdown-${match.index}`
+      });
+      
+      lastIndex = match.index + match[0].length;
+    }
+    
+    // Add remaining text
+    if (lastIndex < text.length) {
+      parts.push(text.slice(lastIndex));
+    }
+    
+    // Now process each part for direct URLs
+    const finalParts = [];
+    parts.forEach((part, partIndex) => {
+      if (typeof part === 'object' && part.type === 'link') {
+        finalParts.push(part);
+        return;
+      }
+      
+      if (typeof part !== 'string') return;
+      
+      // Handle direct URLs in text parts
+      const urlRegex = /(https?:\/\/[^\s<>'"]+)/g;
+      const urlParts = part.split(urlRegex);
+      
+      urlParts.forEach((urlPart, urlIndex) => {
+        if (urlRegex.test(urlPart)) {
+          finalParts.push({
+            type: 'link',
+            text: urlPart,
+            url: urlPart,
+            key: `url-${partIndex}-${urlIndex}`
+          });
+        } else if (urlPart) {
+          finalParts.push(urlPart);
+        }
+      });
     });
     
-    // Then handle direct URLs
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    const parts = processedText.split(/(__MARKDOWN_LINK__[^_]+__[^_]+__MARKDOWN_LINK__|https?:\/\/[^\s]+)/g);
-    
-    return parts.map((part, index) => {
-      // Handle Markdown links
-      if (part.startsWith('__MARKDOWN_LINK__')) {
-        const content = part.replace(/__MARKDOWN_LINK__|__MARKDOWN_LINK__/g, '');
-        const [linkText, url] = content.split('__');
+    return finalParts.map((part, index) => {
+      if (typeof part === 'object' && part.type === 'link') {
+        // Ensure URL has proper protocol
+        let url = part.url;
+        if (!url.startsWith('http://') && !url.startsWith('https://')) {
+          url = 'https://' + url;
+        }
+        
         return (
           <a
-            key={index}
+            key={part.key || `link-${index}`}
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary underline hover:text-primary/80"
+            className="text-primary underline hover:text-primary/80 font-medium cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              // Force open in new tab
+              window.open(url, '_blank', 'noopener,noreferrer');
+            }}
           >
-            {linkText}
-          </a>
-        );
-      }
-      // Handle direct URLs
-      if (urlRegex.test(part)) {
-        return (
-          <a
-            key={index}
-            href={part}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary underline hover:text-primary/80 break-all"
-          >
-            {part}
+            {part.text}
           </a>
         );
       }
