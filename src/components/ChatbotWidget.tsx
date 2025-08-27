@@ -240,7 +240,7 @@ export const ChatbotWidget = () => {
                 className="text-primary-foreground hover:bg-white/20 px-2 py-1 h-auto text-xs flex items-center gap-1"
                 title={language === 'en' ? 'Cambiar a Español' : 'Switch to English'}
               >
-                <span>Cambiar idioma</span>
+                <span>{language === 'en' ? 'Switch language' : 'Cambiar idioma'}</span>
                 <span className="text-sm">{language === 'en' ? '🇪🇸' : '🇺🇸'}</span>
               </Button>
               <Button
