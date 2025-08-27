@@ -251,7 +251,7 @@ export const ChatbotWidget = () => {
                   className={`flex ${message.isBot ? "justify-start" : "justify-end"}`}
                 >
                   <div
-                    className={`max-w-[80%] p-3 rounded-lg text-sm ${
+                    className={`max-w-[80%] p-3 rounded-lg text-base ${
                       message.isBot
                         ? "bg-muted text-foreground"
                         : "bg-primary text-primary-foreground"
