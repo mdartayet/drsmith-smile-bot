@@ -237,11 +237,11 @@ export const ChatbotWidget = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-                className="text-primary-foreground hover:bg-white/20 px-2 py-1 h-auto text-sm flex items-center gap-1"
+                className="text-primary-foreground hover:bg-white/20 px-2 py-1 h-auto text-xs flex items-center gap-1"
                 title={language === 'en' ? 'Cambiar a Español' : 'Switch to English'}
               >
-                <span className="text-base">{language === 'en' ? '🇪🇸' : '🇺🇸'}</span>
-                <span className="text-xs">{language === 'en' ? 'ESP' : 'ENG'}</span>
+                <span>Cambiar idioma</span>
+                <span className="text-sm">{language === 'en' ? '🇪🇸' : '🇺🇸'}</span>
               </Button>
               <Button
                 variant="ghost"
