@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useLanguage } from "@/hooks/useLanguage";
-import { LanguageSelector } from "@/components/LanguageSelector";
 
 interface Message {
   id: string;
@@ -14,7 +13,7 @@ interface Message {
 }
 
 export const ChatbotWidget = () => {
-  const { t, language } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -234,7 +233,15 @@ export const ChatbotWidget = () => {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <LanguageSelector />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
+                className="text-primary-foreground hover:bg-white/20 p-2 h-auto text-lg"
+                title={language === 'en' ? 'Cambiar a Español' : 'Switch to English'}
+              >
+                {language === 'en' ? '🇪🇸' : '🇺🇸'}
+              </Button>
               <Button
                 variant="ghost"
                 size="sm"
