@@ -109,15 +109,15 @@ const translations = {
     'contact.email': 'Email us',
     
     // Chatbot
-    'chatbot.welcome': `Welcome to Dr. Smith's Dental Clinic! 🦷
+    'chatbot.welcome': `👋 Hello! I'm a conversational AI demo for Dr. Smith's Dental Clinic 🦷
 
-Our monthly promotions for this month are:
+🤖 This is a demonstration virtual assistant that can help you with:
 
-🔹 Dental cleaning + check-up for $30
-🔹 Express whitening with 20% off  
-🔹 Children's check-up for $25
+🔹 Dental service information
+🔹 Questions about promotions
+🔹 Appointment and schedule guidance
 
-How can I help you schedule your appointment today?`,
+💬 Ask me anything about our dental services!`,
     'chatbot.placeholder': 'Type your message...',
     'chatbot.error': 'I\'m sorry, I\'m having trouble connecting right now. Please try again or call us at (555) 123-SMILE.',
     'chatbot.inquiry': 'I want to know more about',
@@ -226,15 +226,15 @@ How can I help you schedule your appointment today?`,
     'contact.email': 'Envíanos un email',
     
     // Chatbot
-    'chatbot.welcome': `¡Bienvenido a la Clínica Dental del Dr. Smith! 🦷
+    'chatbot.welcome': `👋 ¡Hola! Soy un demo de IA conversacional para la Clínica Dental del Dr. Smith 🦷
 
-Nuestras promociones mensuales para este mes son:
+🤖 Este es un asistente virtual de demostración que puede ayudarte con:
 
-🔹 Limpieza dental + revisión por $30
-🔹 Blanqueamiento express con 20% de descuento  
-🔹 Revisión para niños por $25
+🔹 Información sobre servicios dentales
+🔹 Preguntas sobre promociones  
+🔹 Orientación sobre citas y horarios
 
-¿Cómo puedo ayudarte a programar tu cita hoy?`,
+💬 ¡Pregúntame lo que quieras sobre nuestros servicios dentales!`,
     'chatbot.placeholder': 'Escribe tu mensaje...',
     'chatbot.error': 'Lo siento, tengo problemas de conexión en este momento. Por favor intenta de nuevo o llámanos al (555) 123-SMILE.',
     'chatbot.inquiry': 'Quiero saber más sobre',
