@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useLanguage } from "@/hooks/useLanguage";
+import { LanguageSelector } from "@/components/LanguageSelector";
 
 interface Message {
   id: string;
@@ -232,14 +233,17 @@ export const ChatbotWidget = () => {
                 <p className="text-xs opacity-90">AI Assistant</p>
               </div>
             </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleChat}
-              className="text-primary-foreground hover:bg-white/20 p-1 h-auto"
-            >
-              <X className="h-4 w-4" />
-            </Button>
+            <div className="flex items-center gap-2">
+              <LanguageSelector />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleChat}
+                className="text-primary-foreground hover:bg-white/20 p-1 h-auto"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
 
           {/* Messages */}
