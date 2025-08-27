@@ -220,7 +220,7 @@ export const ChatbotWidget = () => {
     <>
       {/* Chat Widget */}
       {isOpen && (
-        <div className="fixed bottom-20 right-4 w-80 md:w-96 h-[500px] bg-background border border-border rounded-lg shadow-2xl z-[1000] flex flex-col md:bottom-24 md:right-6 animate-enter">
+        <div className="fixed bottom-20 right-4 w-80 md:w-96 h-[600px] bg-background border border-border rounded-lg shadow-2xl z-[1000] flex flex-col md:bottom-24 md:right-6 animate-enter">
           {/* Header */}
           <div className="bg-primary text-primary-foreground p-4 rounded-t-lg flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -251,7 +251,7 @@ export const ChatbotWidget = () => {
                   className={`flex ${message.isBot ? "justify-start" : "justify-end"}`}
                 >
                   <div
-                    className={`max-w-[80%] p-3 rounded-lg text-base ${
+                    className={`max-w-[90%] p-4 rounded-lg text-base leading-relaxed ${
                       message.isBot
                         ? "bg-muted text-foreground"
                         : "bg-primary text-primary-foreground"
